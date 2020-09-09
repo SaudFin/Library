@@ -1,4 +1,8 @@
-let library = [];
+let library = [
+  { title: "hello World", author: "Blum Blah", pages: 320, read: "YES" },
+  { title: "hello Moon", author: "Blum Blah", pages: 500, read: "NO" },
+  { title: "hello World", author: "Blum blooh", pages: 242, read: "YES" }
+];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -18,4 +22,28 @@ function addBookToLibrary() {
   let read = prompt("Did you read it?");
   library.push(new Book(title, author, pages, read));
 }
-addBookToLibrary();
+
+// to display Books
+function displayBooks() {
+  let container = document.getElementById("container");
+  library.forEach(book => {
+    let titleDiv = document.createElement("div");
+    titleDiv.className = "title";
+    titleDiv.innerHTML = book.title;
+    let authorDiv = document.createElement("div");
+    authorDiv.className = "author";
+    authorDiv.innerHTML = book.author;
+    let pagesDiv = document.createElement("div");
+    pagesDiv.className = "pages";
+    pagesDiv.innerHTML = book.pages;
+    let readDiv = document.createElement("div");
+    readDiv.className = "read";
+    readDiv.innerHTML = book.read;
+    container.appendChild(titleDiv);
+    container.appendChild(authorDiv);
+    container.appendChild(pagesDiv);
+    container.appendChild(readDiv);
+  });
+}
+displayBooks();
+// addBookToLibrary();
