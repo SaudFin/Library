@@ -43,6 +43,7 @@ function displayBooks() {
     container.appendChild(authorDiv);
     container.appendChild(pagesDiv);
     container.appendChild(readDiv);
+    container.style.gridTemplateRows = `repeat(${library.length}, 50px 50px 50px 50px)`;
   });
 }
 displayBooks();

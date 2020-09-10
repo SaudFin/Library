@@ -3,25 +3,28 @@ h1 {
 }
 #container {
   display: grid;
-  grid-template-areas: "title author pages read";
+  /* grid-template: repeat(3, 1fr) / repeat(4, 1fr); */
+  grid-template-columns: 70px 70px 70px 70px;
+  /* grid-template-rows: repeat(4, 50px 50px 50px 50px); */
   max-width: 600px;
-  margin: auto;
+  max-height: 200px;
   text-align: center;
+  margin: auto;
 }
 
 .title {
-  grid-area: title;
+  /* grid-area: title; */
   border: 2px dotted blueviolet;
 }
 .author {
-  grid-area: author;
+  /* grid-area: author; */
   border: 2px dotted blueviolet;
 }
 .pages {
-  grid-area: pages;
+  /* grid-area: pages; */
   border: 2px dotted blueviolet;
 }
 .read {
-  grid-area: read;
+  /* grid-area: read; */
   border: 2px dotted blueviolet;
 }
