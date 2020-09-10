@@ -3,9 +3,7 @@ h1 {
 }
 #container {
   display: grid;
-  /* grid-template: repeat(3, 1fr) / repeat(4, 1fr); */
-  grid-template-columns: 70px 70px 70px 70px;
-  /* grid-template-rows: repeat(4, 50px 50px 50px 50px); */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   max-width: 600px;
   max-height: 200px;
   text-align: center;
@@ -27,4 +25,14 @@ h1 {
 .read {
   /* grid-area: read; */
   border: 2px dotted blueviolet;
+}
+
+#addBook {
+  display: grid;
+  text-align: center;
+  margin: auto;
+  margin-top: 2.5vh;
+}
+form {
+  visibility: hidden;
 }

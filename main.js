@@ -43,8 +43,14 @@ function displayBooks() {
     container.appendChild(authorDiv);
     container.appendChild(pagesDiv);
     container.appendChild(readDiv);
-    container.style.gridTemplateRows = `repeat(${library.length}, 50px 50px 50px 50px)`;
+    // container.style.gridTemplateRows = `repeat(${library.length}, 1fr 1fr 1fr 1fr)`;
   });
 }
-displayBooks();
+
+let addBooksButton = document.getElementById("addBook");
+
+addBooksButton.addEventListener("click", () => {
+  document.querySelector("form").style.visibility = "visible";
+});
 // addBookToLibrary();
+displayBooks();
