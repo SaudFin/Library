@@ -33,13 +33,19 @@ form {
   margin-top: 2.5vh;
   visibility: hidden;
   display: grid;
+  /* grid-template-areas:
+    "title"
+    "titleInput"
+    "author"
+    "authorInput "
+    "pages "
+    "authorInput "
+    "read addition"; */
   grid-template-areas:
-    "title ."
-    "titleInput ."
-    "author ."
-    "authorInput ."
-    "pages ."
-    "authorInput ."
-    "read addition";
+    "label input"
+    "label input"
+    "label input"
+    "label input"
+    "addition .";
   justify-content: center;
 }

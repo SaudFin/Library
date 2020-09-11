@@ -33,8 +33,23 @@ function displayBooks() {
   pagesDiv.className = "pages";
   pagesDiv.innerHTML = book.pages;
   let readDiv = document.createElement("div");
+  let readTrue = ` <input checked type="checkbox" id="${library.length -
+    1}" />`;
+  let readFalse = ` <input  type="checkbox" id="${library.length - 1}" />`;
   readDiv.className = "read";
-  readDiv.innerHTML = book.read;
+  if (book.read === true) {
+    readDiv.innerHTML = readTrue;
+  } else {
+    readDiv.innerHTML = readFalse;
+  }
+  readDiv.firstElementChild.addEventListener("click", () => {
+    console.log(readDiv.firstElementChild.checked);
+    if (readDiv.firstElementChild.checked === true) {
+      book.read = true;
+    } else {
+      book.read = false;
+    }
+  });
   let deleteButton = document.createElement("button");
   deleteButton.className = "delete";
   deleteButton.innerHTML = "delete";
@@ -49,10 +64,8 @@ function displayBooks() {
   newContainer.appendChild(readDiv);
   newContainer.appendChild(deleteButton);
   container.appendChild(newContainer);
-
-  // container.style.gridTemplateRows = `repeat(${library.length}, 1fr 1fr 1fr 1fr)`;
-  // });
 }
+
 function deleteBook(element) {
   element.parentNode.remove();
 }
@@ -61,7 +74,6 @@ let addBooksButton = document.getElementById("addBook");
 let turnClick = false;
 
 function showHideForm() {
-  console.log("one");
   if (turnClick === false) {
     document.querySelector("form").style.visibility = "visible";
     document.getElementById("addBook").style.visibility = "hidden";
@@ -71,7 +83,7 @@ function showHideForm() {
     document.getElementById("addBook").style.visibility = "visible";
     document.getElementById("author").value = "";
     document.getElementById("pages").value = "";
-    document.getElementById("read").value = "";
+    document.getElementById("read").value = false;
     turnClick = false;
   }
 }
@@ -84,7 +96,12 @@ function sumbitBook() {
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
-  let read = document.getElementById("read").value;
+  let read = "";
+  if (document.getElementById("read").checked === true) {
+    read = true;
+  } else {
+    read = false;
+  }
   addBookToLibrary(title, author, pages, read);
   showHideForm();
 }
