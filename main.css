@@ -11,19 +11,15 @@ h1 {
 }
 
 .title {
-  /* grid-area: title; */
   border: 2px dotted blueviolet;
 }
 .author {
-  /* grid-area: author; */
   border: 2px dotted blueviolet;
 }
 .pages {
-  /* grid-area: pages; */
   border: 2px dotted blueviolet;
 }
 .read {
-  /* grid-area: read; */
   border: 2px dotted blueviolet;
 }
 
@@ -34,5 +30,16 @@ h1 {
   margin-top: 2.5vh;
 }
 form {
+  margin-top: 2.5vh;
   visibility: hidden;
+  display: grid;
+  grid-template-areas:
+    "title ."
+    "titleInput ."
+    "author ."
+    "authorInput ."
+    "pages ."
+    "authorInput ."
+    "read addition";
+  justify-content: center;
 }
