@@ -1,5 +1,5 @@
 let library = [];
-
+let deleteButtons = [];
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -19,7 +19,8 @@ function addBookToLibrary(title, author, pages, read) {
 
 // to display Books
 function displayBooks() {
-  let container = document.getElementById("container");
+  let container = document.getElementById("main");
+
   let book = library[library.length - 1];
   // library.forEach(book => {
   let titleDiv = document.createElement("div");
@@ -34,12 +35,26 @@ function displayBooks() {
   let readDiv = document.createElement("div");
   readDiv.className = "read";
   readDiv.innerHTML = book.read;
-  container.appendChild(titleDiv);
-  container.appendChild(authorDiv);
-  container.appendChild(pagesDiv);
-  container.appendChild(readDiv);
+  let deleteButton = document.createElement("button");
+  deleteButton.className = "delete";
+  deleteButton.innerHTML = "delete";
+  deleteButton.addEventListener("click", () => {
+    deleteBook(deleteButton);
+  });
+  let newContainer = document.createElement("div");
+  newContainer.className = "container";
+  newContainer.appendChild(titleDiv);
+  newContainer.appendChild(authorDiv);
+  newContainer.appendChild(pagesDiv);
+  newContainer.appendChild(readDiv);
+  newContainer.appendChild(deleteButton);
+  container.appendChild(newContainer);
+
   // container.style.gridTemplateRows = `repeat(${library.length}, 1fr 1fr 1fr 1fr)`;
   // });
+}
+function deleteBook(element) {
+  element.parentNode.remove();
 }
 
 let addBooksButton = document.getElementById("addBook");
@@ -67,7 +82,6 @@ addBooksButton.addEventListener("click", () => {
 function sumbitBook() {
   console.log("here");
   let title = document.getElementById("title").value;
-  console.log(title);
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
   let read = document.getElementById("read").value;

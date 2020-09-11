@@ -1,9 +1,9 @@
 h1 {
   text-align: center;
 }
-#container {
+.container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   max-width: 600px;
   max-height: 200px;
   text-align: center;
